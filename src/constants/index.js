@@ -250,12 +250,12 @@ const testimonials = [
 const socialImgs = [
   {
     name: "insta",
-    url: "https://www.instagram.com/",
+    url: "https://www.instagram.com/nowsuperezz",
     imgPath: "/images/insta.png",
   },
   {
     name: "fb",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/superezz",
     imgPath: "/images/fb.png",
   },
   {
@@ -265,7 +265,7 @@ const socialImgs = [
   },
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/",
+    url: "https://www.linkedin.com/superezz",
     imgPath: "/images/linkedin.png",
   },
 ];
