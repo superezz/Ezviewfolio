@@ -1,8 +1,20 @@
+import AnimatedCounter from "../components/AnimatedCounter.jsx";
 import Button from "../components/Button.jsx";
 import HeroExperience from "../components/HeroModels/HeroExperience.jsx";
 import { words } from "../constants/index.js";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const Hero = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".hero-text h1",
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" },
+    );
+  });
+
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10 ">
@@ -17,9 +29,9 @@ const Hero = () => {
                 Shaping{" "}
                 <span className="slide">
                   <span className="wrapper ">
-                    {words.map((word) => (
+                    {words.map((word, index) => (
                       <span
-                        key={word.text}
+                        key={`${word.text}-${index}`}
                         className="flex items-center md:gap-3 gap-1 pb-2"
                       >
                         <img
@@ -42,19 +54,22 @@ const Hero = () => {
               Hi, I'm Arya , a developer based in croatia with a passion for
               creating innovative solutions.
             </p>
-            <Button className="md:w-80 md:h-16 w-60 h-12"
-            id="button"
-            text="See My Work" />
+            <Button
+              className="md:w-80 md:h-16 w-60 h-12"
+              id="button"
+              text="See My Work"
+            />
           </div>
         </header>
 
         {/*RIGHT: 3d MODEL*/}
         <figure>
           <div className="hero-3d-layout">
-            <HeroExperience/>
+            <HeroExperience />
           </div>
         </figure>
       </div>
+      <AnimatedCounter />
     </section>
   );
 };
